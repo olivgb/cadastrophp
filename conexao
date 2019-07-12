@@ -1,0 +1,31 @@
+<?php
+ $host = "";
+ $usuario = "";
+ $senha = "";
+ $db = "";
+
+
+ $mysqli = new mysqli($host,$usuario,$senha,$db);
+
+  $nome = addslashes($_POST['nome']);
+  $usuario = addslashes($_POST['usuario']);
+  $senha = addslashes($_POST['senha']);
+  $permissao = addslashes($_POST['permissao']);
+
+  $sql = "INSERT INTO usuario(nome,usuario,senha,permissao) VALUES ('$nome','$usuario','$senha','$permissao')";
+  $salvar =  mysqli_query($mysqli,$sql);
+
+ mysql_close($mysqli);	
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastrado!</title>
+</head>
+<body>
+       <h3>Seu Funcionario foi Cadastrado!</h3>
+       <a href="http://figsistemas.ga/cadastro.php">Voltar para a tela de cadastrado.</a>
+</body>
+</html>
